@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@layer base {
+    body{
+        @apply bg-zinc-900 text-white;
+    }
+}
+@layer component {
+    .btn{
+        @apply px-4 py-1 text-sm rounded-md hover:brightness-90 transition cursor-pointer
+    }
+}

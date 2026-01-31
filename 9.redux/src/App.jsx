@@ -1,11 +1,20 @@
-import React from 'react'
+import React from "react";
+import Form from "./components/Form";
+import List from "./components/List";
 
 const App = () => {
   return (
-    <div>
-      app
+    <div className="h-screen flex flex-col
+ items-center justify-star">
+      <div>
+        <h1>
+          Redux <span>CRUD</span>
+        </h1>
+      </div>
+      <Form />
+      <List />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
