@@ -2,7 +2,7 @@ import React from "react";
 import { toast } from "react-toastify";
 import { v4 } from "uuid";
 import { useDispatch } from "react-redux";
-
+import ACTION_TYPES  from "../reducers/actionTypes"
 
 const Form = () => {
     const dispatch =useDispatch()
@@ -15,11 +15,14 @@ const Form = () => {
       text,
       isDone: false,
       createdAt: new Date().getTime()
+  
     };
-  dispatch({type:"CREATE", payload:newTodo})
+  dispatch({type:ACTION_TYPES.CREATE, payload:newTodo})
+    e.target[0].value="";
+
   };
   return (
-    <div className="mt-5">
+    <div className="mt-5 " >
       <form onSubmit={handleSubmit} action="">
         <input
           placeholder="Bir görev ekle"

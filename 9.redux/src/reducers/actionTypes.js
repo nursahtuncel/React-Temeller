@@ -1,0 +1,8 @@
+ const ACTION_TYPES={
+    CREATE:"CREATE_TODO",
+    DELETE:"DELETE_TODO",
+    TOOGLE:"TOOGLE_TODO",
+    UPDATE:"UPDATE_TODO"
+}
+
+export default  ACTION_TYPES;

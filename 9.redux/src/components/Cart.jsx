@@ -1,17 +1,28 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
+import Modal from "./Modal";
+import ACTION_TYPES  from "../reducers/actionTypes"
 
 const Cart = ({ todo }) => {
+  const [IsOpen ,setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch({ type: "DELETE", payload: todo.id });
+    dispatch({ type: ACTION_TYPES.DELETE, payload: todo.id });
   };
  const handleStatus=()=>{
-  dispatch({type:"TOGGLE_TODO",payload:todo.id})
+  dispatch({type:ACTION_TYPES.TOOGLE,payload:todo.id})
+ }
+ const handleUpdate = () => {
+  setIsOpen(true)
+
  }
   return (
-    <div className="flex flex-col border border-zinc-700 rounded p-4 shadow-lg">
+    <>
+  
+
+    <div className="flex flex-col border border-zinc-700 rounded p-4 shadow-lg backdrop-blur-sm">
       <div className="flex flex-col gap-2">
         <h3> {todo.text}</h3>
         <h5>{todo.isDone ? "Tamamlandı" : "Devam Ediyor"}</h5>
@@ -27,7 +38,7 @@ const Cart = ({ todo }) => {
         </h6>
       </div>
       <div className="flex gap-2.5 mt-5">
-        <button className="btn !bg-orange-500">Düzenle</button>
+        <button onClick={handleUpdate}  className="btn !bg-orange-500">Düzenle</button>
         <button onClick={handleStatus} className="btn !bg-green-500">
           {todo.isDone ? "Geri al" : "Tamamla"}
         </button>
@@ -36,6 +47,8 @@ const Cart = ({ todo }) => {
         </button>
       </div>
     </div>
+<Modal isOpen={IsOpen} close={()=>setIsOpen(false)} todo={todo}/>
+      </>
   );
 };
 

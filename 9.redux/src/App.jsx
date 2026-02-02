@@ -5,7 +5,7 @@ import List from "./components/List";
 const App = () => {
   return (
     <div className="h-screen flex flex-col
- items-center justify-star">
+ items-center justify-start mt-10">
       <div>
         <h1>
           Redux <span>CRUD</span>

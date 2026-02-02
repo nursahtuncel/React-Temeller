@@ -2,7 +2,7 @@
 
 @layer base {
     body{
-        @apply bg-zinc-900 text-white;
+        @apply bg-zinc-900 text-white flex justify-center items-center;
     }
 }
 @layer component {

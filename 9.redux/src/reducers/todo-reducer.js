@@ -1,3 +1,4 @@
+import ACTION_TYPES  from "./actionTypes.js"
 const initialState = {
   todos: [],
   category: [],
@@ -6,12 +7,12 @@ const initialState = {
 
 const TodoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "CREATE":
+    case ACTION_TYPES.CREATE:
       return {
         ...state,
         todos: [...state.todos, action.payload],
       };
-    case "DELETE":
+    case ACTION_TYPES.DELETE:
       const deletedTodos = state.todos.filter(
         (item) => item.id !== action.payload,
       );
@@ -19,7 +20,7 @@ const TodoReducer = (state = initialState, action) => {
         ...state,
         todos: deletedTodos,
       };
-    case "TOGGLE_TODO":
+    case ACTION_TYPES.TOOGLE:
       const toggled = state.todos.map((todo) =>
         todo.id === action.payload ? { ...todo, isDone: !todo.isDone } : todo,
       );
@@ -27,7 +28,15 @@ const TodoReducer = (state = initialState, action) => {
         ...state,
         todos: toggled,
       };
-      case "UPDATE":
+      case ACTION_TYPES.UPDATE:
+
+      const uptadedTodos =state.todos.map((todo)=>todo.id===action.payload.id ? action.payload:todo)
+        return{
+          ...state,
+         todos: uptadedTodos
+
+          
+        }
         
     default:
       return state;
