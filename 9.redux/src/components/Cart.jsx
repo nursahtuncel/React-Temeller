@@ -3,16 +3,33 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Modal from "./Modal";
 import ACTION_TYPES  from "../reducers/actionTypes"
+import api from "../services/api";
+import { toast } from "react-toastify";
 
 const Cart = ({ todo }) => {
   const [IsOpen ,setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
   const handleDelete = () => {
+  api.delete(`/todos/${todo.id}`)
+  .then(()=>{
     dispatch({ type: ACTION_TYPES.DELETE, payload: todo.id });
+    toast.success("todo silindi")
+  })
+  .catch((err)=> toast.error("silme işlemi başarısız"))
+
   };
  const handleStatus=()=>{
+  api.patch(`/todos/${todo.id}`,{isDone:!todo.isDone})
+  .then(()=>{
   dispatch({type:ACTION_TYPES.TOOGLE,payload:todo.id})
+
+  })
+  .catch((err)=>{
+    toast.error("hatalı bir işlem yaptınız")
+  })
+
+
  }
  const handleUpdate = () => {
   setIsOpen(true)

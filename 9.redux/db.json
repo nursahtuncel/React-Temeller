@@ -1,0 +1,10 @@
+{
+  "todos": [
+    {
+      "id": "1ae42e04-a78b-495e-8f0f-252329764b62",
+      "text": "react çalış",
+      "isDone": false,
+      "createdAt": 1770051929508
+    }
+  ]
+}

@@ -1,8 +1,10 @@
-import ACTION_TYPES  from "./actionTypes.js"
+import ACTION_TYPES from "./actionTypes.js";
 const initialState = {
   todos: [],
   category: [],
+  isLoading: false,
   filters: [],
+  error: null,
 };
 
 const TodoReducer = (state = initialState, action) => {
@@ -28,16 +30,32 @@ const TodoReducer = (state = initialState, action) => {
         ...state,
         todos: toggled,
       };
-      case ACTION_TYPES.UPDATE:
+    case ACTION_TYPES.UPDATE:
+      const uptadedTodos = state.todos.map((todo) =>
+        todo.id === action.payload.id ? action.payload : todo,
+      );
+      return {
+        ...state,
+        todos: uptadedTodos,
+      };
+    case ACTION_TYPES.SET:
+      return {
+        ...state,
+        isLoading: false,
+        todos: action.payload,
+      };
+    case ACTION_TYPES.LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case ACTION_TYPES.ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
 
-      const uptadedTodos =state.todos.map((todo)=>todo.id===action.payload.id ? action.payload:todo)
-        return{
-          ...state,
-         todos: uptadedTodos
-
-          
-        }
-        
+      };
     default:
       return state;
   }

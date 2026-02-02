@@ -7,16 +7,21 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "json-server --watch db.json --port 5000"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "axios": "^1.13.4",
+    "json": "^11.0.0",
+    "json-server": "^1.0.0-beta.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-redux": "^9.2.0",
     "react-toastify": "^11.0.5",
     "redux": "^5.0.1",
+    "server": "^1.0.42",
     "tailwindcss": "^4.1.18",
     "uuid": "^13.0.0"
   },
