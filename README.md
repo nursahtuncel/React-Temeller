@@ -100,6 +100,22 @@ Global state yönetimi
 
 Form / Todo örnekleri
 
+*****************
+10.Redux Thunk
+
+Redux’ta async işlemler
+
+Middleware kavramı
+
+redux-thunk nedir, ne işe yarar
+
+dispatch ile fonksiyon gönderme
+
+API çağrılarının yönetimi
+
+Loading / Success / Error state yapısı
+
+*****************
 
 
 
